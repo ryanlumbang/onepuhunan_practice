@@ -1,0 +1,352 @@
+/********************************* 
+   Author: Ronald San Pedro Jr. 
+   Date  : OCtober 19, 2016 
+**********************************/
+
+* { margin: 0; }
+
+html, body {
+    height: 100%;
+    background-image: url("../img/bg.png");
+    background-repeat: repeat-y;
+    background-position: 0px 5px; 
+}
+
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -20px;
+}
+
+    .page-wrap:after {
+        content: "";
+        display: block;
+    }
+
+    .site-footer, .page-wrap:after {
+        height: 20px;
+    }
+    
+.site-footer {
+    background-color: #efefef;
+    box-shadow: 0 -2px 8px #D0D0D0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.site-header {
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px #D0D0D0;
+}
+
+.tm-label {
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* login.php */
+.tm-padding {
+    margin-top: 80px;
+}
+
+.tm-box-shadow {
+  border-radius: 4px;
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.7);
+}
+
+.tm-form legend {
+   color: gray;
+}
+
+.tm-required-label {
+    font-weight: bold;
+    font-size: 12px;
+    color: red;
+}
+
+#tm-container .uk-alert {
+    margin-bottom: -5px;
+    margin-top: 20px;
+    padding: 7px;
+}
+
+.tm-form-legend {
+    margin-top: 30px;
+}
+
+.tm-form-note {
+    margin-top: 10px;
+    line-height: 1px;
+    text-align: justify;
+    color: gray;
+}
+
+.tm-form-success {
+    margin-top: 5px;
+    line-height: 1px;
+    text-align: justify;
+}
+
+.tm-submenu {
+    border-radius: 0px !important;
+    padding: 10px;
+    box-shadow: 0 2px 3px #D0D0D0;
+    font-size: 12px;
+}
+
+.tm-submenu .uk-container {
+    padding-right: 50px;
+}
+
+.tm-mainmenu {
+    margin-top: 50px;
+}
+
+.tm-mainmenu h3 {
+    text-align: left;
+    font-weight: bold;
+    color: #255E69;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.tm-mainmenu p {
+    text-align: justify;
+    font-size: 12px;
+    margin-left: 10px;
+    line-height: 15px;
+    margin-top: -14px;
+    margin-bottom: -10px;
+}
+
+.tm-ul {
+    list-style: none;
+    font-size: 12px;
+    text-align: left;
+    margin-left: 10px;
+    padding-left: 3px;
+}
+
+.tm-ul li {
+    margin-bottom: -2px;;
+}
+
+.tm-ul li:before {
+    font-family: "FontAwesome";
+    content: "\f0da";
+    padding-right: 6px;
+}
+
+#tm-cc {
+    margin-top: 50px !important; 
+}
+
+#tm-cc .uk-width-7-10 {
+    padding-top: 2px;
+}
+
+#tm-cc .uk-width-1-1 {
+    margin-top: 1px;
+    padding-top: 30px;
+}
+
+#tm-cc hr {
+    margin: 8px 0 -15px 0;
+}
+
+#tm-cc .tm-cc-title {
+    font-size: 20px;
+    color: #999;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);    
+}
+
+#tm-cc .tm-cc-sub-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);   
+    background-color: #50CAE2;
+    padding: 5px 0 5px 9px;
+    margin-bottom: -7px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+#tm-cc .tm-tab {
+    padding-top: 18px;
+}
+
+.tm-cc-hist {
+    margin-top: -14px;
+}
+
+.tm-chkbox {
+    vertical-align: text-top;
+}
+/***************
+   Back to Top
+ ***************/
+a.back-to-top {
+    display: none;
+    width: 60px;
+    height: 60px;
+    text-indent: -9999px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: #27AE61 url("../img/up-arrow.png") no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+a:hover.back-to-top {
+    background-color: #000;
+}
+
+/**************************
+   Modified UIKit Styling
+ **************************/
+.uk-navbar {
+    height: 80px;
+}
+
+.uk-navbar > .uk-container,
+.uk-navbar > .uk-container > .uk-navbar-brand,
+.uk-navbar > .uk-container > .uk-navbar-flip,
+.uk-navbar > .uk-container > .uk-navbar-flip > .uk-navbar-nav {
+    /* or .uk-height-1-1 */
+    height: 100%;
+}
+
+.uk-navbar-nav > li > a {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.uk-navbar-nav > li.uk-active > a,
+.uk-navbar-nav > li.uk-active > a:hover,
+.uk-navbar-nav > li.uk-active > a:focus {
+    background-color: #2BA3D4;
+    color: #FFF;
+    border-radius: 3px !important;
+}
+
+.uk-navbar-nav > li:hover > a,
+.uk-navbar-nav > li:focus > a {
+    background-color: #FFF;
+    color: #2BA3D4;
+}
+
+.uk-navbar-nav > li > a:active {
+    background-color: transparent;
+}
+
+.uk-form legend {
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+.uk-form input[type="text"],
+.uk-form input[type="password"]{
+    border-radius: 3px;
+}
+
+/*.uk-button {
+  border: 1px solid rgba(0,0,0,.2);
+  border-bottom-color: rgba(0, 0, 0, .3);
+  border-radius: 4px;
+  background-origin: border-box;
+}
+
+.uk-button:hover,
+.uk-button:focus {
+  background-color: #fafafa;
+  color: #666;
+}
+
+.uk-button:active,
+.uk-button.uk-active {
+  background-color: #ddd;
+  color: #444;
+}*/
+
+/*.uk-form-label {
+    color: #666666;
+}*/
+
+.uk-table thead th,
+.uk-table tbody td{  
+    font-size: 11px; 
+    color: #666666;
+}
+
+.uk-table caption {  
+    color: #6F7074;  
+    text-align: center;
+    margin-bottom: 8px;
+    font-style:normal;
+} 
+
+.uk-panel-box {
+    color: #666;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.uk-form-icon {
+    display: block;
+}
+
+.uk-close {
+    margin-top: -3px;
+}
+
+.branch-text{
+    height: 30px !important;
+    text-align: center;
+    width: 35%;
+    top: 3px;
+    position: relative;
+}
+
+.div{
+    text-align: center;
+}
+
+.extract-button{
+    position: relative;
+    top: 4px;
+    color: white !important;
+}
+.input-text{
+    display: none;
+    visibility: hidden;
+}
+
+.input-loan{
+    display: none;
+    visibility: hidden;
+}
+
+.loan{
+    top: 3px;
+    position: relative;
+}
+
+select.month {
+    position: relative;
+    top: 10px;
+    width: 20%;
+    margin-bottom: 5px;
+}
+
+select.year {
+    position: relative;
+    top: 10px;
+    width: 14%;
+    margin-bottom: 5px;
+}
