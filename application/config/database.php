@@ -96,7 +96,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-$hrdb['default'] = array(
+$db['hr'] = array(
     'dsn'	=> '',
     //'hostname' => '10.10.225.35',
     'hostname' => '10.10.224.28',

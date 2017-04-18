@@ -8,7 +8,8 @@
  */
 class HR_model extends CI_Model
 {
-    public function _construct() {
+    public function _construct()
+    {
         parent::__construct();
     }
 
@@ -16,12 +17,14 @@ class HR_model extends CI_Model
     {
         $this->db->insert('t_Employee', $data);
         return TRUE;
-        $query=$this->db->query('')
+        $query = $this->db->query('');
     }
 
 
-    public function view_data(){
-        $query=$this->db->query('SELECT * FROM "t_Employee"');
+    public function view_data()
+    {
+        $hrdb = $this->load->database('hr', true);
+        $query = $hrdb->query('SELECT * FROM "t_Employee"');
         return $query->result_array();
     }
 

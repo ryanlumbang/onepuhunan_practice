@@ -22,7 +22,7 @@
 
 
                             <br><br>
-                            <input type="submit" value="Submit" />
+                            <input type="submit" class="uk-button uk-button-primary uk-width-2-10  extract-button" value="Submit" />
 
 
 
