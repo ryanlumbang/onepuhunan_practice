@@ -30,7 +30,7 @@
 <br><br>
 
 <div align="center">
-    <form action="<?php echo base_url(); ?>index.php/uploadcsv/import" method="post" name="upload_excel" enctype="multipart/form-data">
+    <form action="<?php echo base_url(); ?>hr/import" method="post" name="upload_excel" enctype="multipart/form-data">
         <input type="file" name="file" id="file">
         <button type="submit" id="submit" name="import" class="btn btn-primary button-loading">Import</button>
     </form>

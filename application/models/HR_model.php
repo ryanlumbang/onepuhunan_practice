@@ -15,9 +15,16 @@ class HR_model extends CI_Model
 
     public function insertCSV($data)
     {
-        $this->db->insert('t_Employee', $data);
-        return TRUE;
-        $query = $this->db->query('');
+        $hrdb = $this->load->database('hr', true);
+        $hrdb->insert('"t_Employee"', $data);
+
+        //$query = $hrdb->insert('"t_Employee"', $data);
+        //return $query;
+
+
+
+        //$query = $this->$hrdb->query('');
+        //return TRUE;
     }
 
 
