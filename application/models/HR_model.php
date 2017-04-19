@@ -20,13 +20,9 @@ class HR_model extends CI_Model
 
         //$query = $hrdb->insert('"t_Employee"', $data);
         //return $query;
-
-
-
         //$query = $this->$hrdb->query('');
         //return TRUE;
     }
-
 
     public function view_data()
     {
@@ -34,7 +30,4 @@ class HR_model extends CI_Model
         $query = $hrdb->query('SELECT * FROM "t_Employee"');
         return $query->result_array();
     }
-
-
-
 }

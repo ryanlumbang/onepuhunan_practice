@@ -23,7 +23,6 @@ class HR extends CI_Controller
 
 
         $this->load->model("HR_model");
-        $query = $this->HR_model->view_data();
     }
 
     public function import()
