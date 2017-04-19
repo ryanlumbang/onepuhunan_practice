@@ -16,7 +16,7 @@ class HR_model extends CI_Model
     public function insertCSV($data)
     {
         $hrdb = $this->load->database('hr', true);
-        $hrdb->insert('"t_Employee"', $data);
+        $hrdb->insert('"t_Employee_Dummy"', $data);
 
         //$query = $hrdb->insert('"t_Employee"', $data);
         //return $query;
@@ -27,7 +27,7 @@ class HR_model extends CI_Model
     public function view_data()
     {
         $hrdb = $this->load->database('hr', true);
-        $query = $hrdb->query('SELECT * FROM "t_Employee"');
+        $query = $hrdb->query('SELECT * FROM "t_Employee_Dummy"');
         return $query->result_array();
     }
 }
