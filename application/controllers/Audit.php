@@ -15,68 +15,11 @@ class Audit extends CI_Controller {
 
     }
 
-    public function import() {
-        $this->load->model("Audit_model");
-        $data["query"] = $this->Audit_model->get_branch_list();
-        date_default_timezone_set('Asia/Kolkata');
-
-//       include '../../application/third_party/PHPExcel-1.8/IOFactory.php';
-
-//        inclue 'third_party/PHPExcel-1.8/IOFactory.php';
-//
-//        if(isset($_FILES['file']['name'])){
-//
-//            $file_name = $_FILES['file']['name'];
-//            $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-//
-//            //Checking the file extension
-//            if($ext == "xlsx"){
-//
-//                $file_name = $_FILES['file']['tmp_name'];
-//                $inputFileName = $file_name;
-//
-//                //  Read your Excel workbook
-//                try {
-//                    $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
-//                    $objReader = PHPExcel_IOFactory::createReader($inputFileType);
-//                    $objPHPExcel = $objReader->load($inputFileName);
-//                } catch (Exception $e) {
-//                    die('Error loading file "' . pathinfo($inputFileName, PATHINFO_BASENAME)
-//                        . '": ' . $e->getMessage());
-//                }
-//
-//                //Table used to display the contents of the file
-//                echo '<center><table style="width:50%;" border=1>';
-//
-//                //  Get worksheet dimensions
-//                $sheet = $objPHPExcel->getSheet(0);
-//                $highestRow = $sheet->getHighestRow();
-//                $highestColumn = $sheet->getHighestColumn();
-//
-//                //  Loop through each row of the worksheet in turn
-//                for ($row = 1; $row <= $highestRow; $row++) {
-//                    //  Read a row of data into an array
-//                    $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
-//                        NULL, TRUE, FALSE);
-//                    echo "<tr>";
-//                    //echoing every cell in the selected row for simplicity. You can save the data in database too.
-//                    foreach($rowData[0] as $k=>$v)
-//                        echo "<td>".$v."</td>";
-//                    echo "</tr>";
-//                }
-//
-//                echo '</table></center>';
-//
-//            }
-//
-//            else{
-//                echo '<p style="color:red;">Please upload file with xlsx extension only</p>';
-//            }
-//
-//        }
-        $this->load->view("audit/audit_import", $data);
-
-    }
+//    public function import() {
+//        $this->load->model("Audit_model");
+//        $data["query"] = $this->Audit_model->view_data();
+//        $this->load->view("audit/audit_import", $data);
+//    }
 
     public function csv()
     {
@@ -389,6 +332,92 @@ class Audit extends CI_Controller {
         ob_end_clean();
         $writer->save('php://output');
         exit;
+    }
+
+//    public function import_csv()
+//    {
+//        $this->load->model("Audit_model");
+//
+//        if(isset($_POST["import"]))
+//        {
+//            $filename=$_FILES["file"]["tmp_name"];
+//
+//            if($_FILES["file"]["size"] > 0)
+//            {
+//                $file = fopen($filename, "r");
+//                fgetcsv($file);
+//                while (($importdata = fgetcsv($file, 10000, ",")) !== FALSE)
+//                {
+//                    $data = array(
+//                        'DateOfSampling' => $importdata[0],
+//                        'OurBranchID' => $importdata[1],
+//                        'ClientName' =>$importdata[2],
+//                        'ClientID' => $importdata[3],
+//                        'AccountID' => $importdata[4],
+//                        'LoanAvailmentSeries' => $importdata[5],
+//                        'ClientVisitStatus' => $importdata[6]
+//
+//
+//                    );
+//
+//                    //$insert = $this->welcome->insertCSV($data);
+//                    $this->Audit_model->insertCSV($data);
+//                }
+//                fclose($file);
+//                $this->session->set_flashdata('message', 'Data are imported successfully..');
+//                redirect('audit/audit_import');
+//            }else{
+//                $this->session->set_flashdata('message', 'Something went wrong..');
+//                redirect('audit/audit_import');
+//            }
+//        }
+//    }
+
+    public function importbulkemail(){
+        $this->load->model("Audit_model");
+        $data["view_data"] = $this->Audit_model->get_audit_sampling();
+        $this->load->view("audit/audit_import", $data);
+    }
+
+    public function import()
+    {
+        $this->load->model('Audit_model');
+
+        if(isset($_POST["import"]))
+        {
+            $filename=$_FILES["file"]["tmp_name"];
+            if($_FILES["file"]["size"] > 0)
+            {
+                $file = fopen($filename, "r");
+                fgetcsv($file);
+                while (($importdata = fgetcsv($file, 10000, ",")) !== FALSE)
+                {
+                    $data = array(
+                        'DateOfSampling' => $importdata[0],
+                        'OurBranchID' => $importdata[1],
+                        'ClientName' =>$importdata[2],
+                        'ClientID' => $importdata[3],
+                        'AccountID' => $importdata[4],
+                        'LoanAvailmentSeries' => $importdata[5],
+                        'ClientVisitStatus' => $importdata[6]
+
+
+                    );
+
+                    //$insert = $this->welcome->insertCSV($data);
+                    $this->Audit_model->set_audit_sampling($data);
+                }
+                fclose($file);
+                $this->session->set_flashdata('message', 'Data are imported successfully..');
+                redirect('audit/audit_import');
+            }else{
+                $this->session->set_flashdata('message', 'Something went wrong..');
+                redirect('audit/audit_import');
+            }
+        }
+
+        $this->load->view("audit/audit_import");
+
     }
 
     public function get_audit_result(){

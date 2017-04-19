@@ -32,6 +32,18 @@ class Audit_model extends CI_Model
 
     }
 
+    public function set_audit_sampling($data)
+    {
+        $this->db->insert('"t_audit_sampling"', $data);
+    }
+
+    public function get_audit_sampling()
+    {
+
+        $query = $this->db->query('SELECT * FROM "t_audit_sampling"');
+        return $query->result_array();
+    }
+
     public function set_audit_excel() {
 
 

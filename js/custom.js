@@ -18,3 +18,127 @@ $(document).ready(function() {
        return false;
     });    
 });
+
+//INPUT FIELD JS
+
+
+
+//END OF INPUT FIELD JS
+
+//EXPORT VALIDATION IN MONTH
+
+function myFunction()
+{
+    var year = document.getElementById("year").value;
+    var months = document.getElementById("months").value;
+
+    var days = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+
+    if (months == days[0])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-31";
+    }
+
+    else if (months == days[1])
+    {
+        if( (0 == year % 4) && (0 != year % 100) || (0 == year % 400) )
+        {
+            document.getElementById("text").value = year +"-"+ months +"-29";
+        }
+        else
+        {
+            document.getElementById("text").value = year +"-"+ months +"-28";
+        }
+    }
+
+    else  if (months == days[2])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-31";
+    }
+
+    else  if (months == days[3])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-30";
+    }
+
+    else  if (months == days[4])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-31";
+    }
+
+    else  if (months == days[5])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-30";
+    }
+
+    else  if (months == days[6])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-31";
+    }
+
+    else  if (months == days[7])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-31";
+    }
+
+    else  if (months == days[8])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-30";
+    }
+
+    else  if (months == days[9])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-31";
+    }
+
+    else  if (months == days[10])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-30";
+    }
+
+    else  if (months == days[11])
+    {
+        document.getElementById("text").value = year +"-"+ months +"-31";
+    }
+
+}
+
+function typeLoan()
+{
+    var loan = document.getElementById("loan").value;
+
+    document.getElementById("loan_text").value = loan;
+
+}
+
+//END FOR EXPORT VALIDATION FOR MONTH
+
+//VALIDATION FOR CSV FILE
+
+    var _validFileExtensions = [".csv"];
+
+function ValidateSingleInput(oInput)
+{
+    if (oInput.type == "file") {
+        var sFileName = oInput.value;
+        if (sFileName.length > 0) {
+            var blnValid = false;
+            for (var j = 0; j < _validFileExtensions.length; j++) {
+                var sCurExtension = _validFileExtensions[j];
+                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                    blnValid = true;
+                    break;
+                }
+            }
+
+            if (!blnValid) {
+                alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                oInput.value = "";
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+//END VALIDATION FOR CSV FILE

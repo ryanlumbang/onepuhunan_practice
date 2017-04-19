@@ -23,17 +23,19 @@ class HR extends CI_Controller
 
 
         $this->load->model("HR_model");
-        $query = $this->HR_model->view_data();
     }
 
     public function import()
     {
+        $this->load->model('HR_model');
+
         if(isset($_POST["import"]))
         {
             $filename=$_FILES["file"]["tmp_name"];
             if($_FILES["file"]["size"] > 0)
             {
                 $file = fopen($filename, "r");
+                fgetcsv($file);
                 while (($importdata = fgetcsv($file, 10000, ",")) !== FALSE)
                 {
                     $data = array(
@@ -42,19 +44,20 @@ class HR extends CI_Controller
                         'gender' =>$importdata[2],
                         'date_hired' => $importdata[3],
                         'date_end_proby' => $importdata[4],
-                        'date_of_resig' => $importdata[5],
+                        'date_of_resig' => $importdata[5]
 
 
                     );
 
-                    $insert = $this->welcome->insertCSV($data);
+                    //$insert = $this->welcome->insertCSV($data);
+                    $this->HR_model->insertCSV($data);
                 }
                 fclose($file);
                 $this->session->set_flashdata('message', 'Data are imported successfully..');
-                redirect('uploadcsv/index');
+                redirect('hr/import_employee');
             }else{
                 $this->session->set_flashdata('message', 'Something went wrong..');
-                redirect('uploadcsv/index');
+                redirect('hr/import_employee');
             }
         }
     }
