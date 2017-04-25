@@ -16,14 +16,25 @@ $(document).ready(function() {
            scrollTop: 0
        }, 700); 
        return false;
-    });    
+    });
+
+    //INPUT FIELD JS
+        'use strict';
+
+        $('.input-file').each(function() {
+            var $input = $(this),
+                $label = $input.next('.js-labelFile'),
+                labelVal = $label.html();
+
+            $input.on('change', function(element) {
+                var fileName = '';
+                if (element.target.value) fileName = element.target.value.split('\\').pop();
+                fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
+            });
+        });
+    //END OF INPUT FIELD JS
+
 });
-
-//INPUT FIELD JS
-
-
-
-//END OF INPUT FIELD JS
 
 //EXPORT VALIDATION IN MONTH
 
@@ -142,3 +153,21 @@ function ValidateSingleInput(oInput)
 }
 
 //END VALIDATION FOR CSV FILE
+
+//CSV VALIDATION FIELD ONLY
+function model(mContent)
+        {
+            $( ".overlay" ).fadeIn();
+            $('.mText').html(mContent);
+            $( ".footer" ).on('click', function() {
+                $( ".overlay" ).fadeOut();
+            });
+        }
+
+    var bac = "heading"
+    var abc = '<div class="well"><h2>' + bac + '<h2></div>'
+    $(document).ready(function()
+        {
+            model(abc);
+        });
+//END OF CSV VALIDATION FILE
