@@ -73,7 +73,9 @@ $route['sys/registration_request'] = "sys/index";
 
 /* audit */
 $route['audit/audit_extraction']="audit/index";
+
 $route['audit/audit_import']="audit/import";
 
 /* hr */
 $route['hr/import_employee']="hr/importbulkemail";
+$route['test/template']="test/index";
