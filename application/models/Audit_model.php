@@ -23,7 +23,7 @@ class Audit_model extends CI_Model
             "branch" => $branch,
             "date" =>  $date,
             "loan" => $loan
-        );
+    );
 
         if( trim($branch) != "") {
             $query = $this->db->query("SELECT * FROM sp_zyz( ?, ?, ?)", $input);

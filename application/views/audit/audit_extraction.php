@@ -15,13 +15,13 @@
                     <div class="uk-form-row uk-margin-top-remove div">
                         <input type="text" id="branch_code" name="branch_code" class="uk-width-largeuk-width-largeuk-width-large uk-form-small branch-text" placeholder="Branch Code">
 
-                            <select required class="loan" id="loan" name="type_loan" onchange="typeLoan()">
+                            <select class="loan" id="loan" name="type_loan" onchange="typeLoan()">
                                 <option value="" disabled selected hidden>Type of Loan </option>
                                 <option value="0">Group Loan</option>
                                 <option value="1">Individual Loan</option>
                             </select>
                         <br/>
-                             <select required class="month" id="months" name="month_name" onchange="myFunction()">
+                             <select class="month" id="months" name="month_name" onchange="myFunction()">
                                 <option value="" disabled selected hidden>Month</option>
                                 <option value="01">January</option>
                                 <option value="02">February</option>
@@ -37,7 +37,7 @@
                                 <option value="12">December</option>
                             </select>
 
-                            <select id="year" required class="year" name="year_name" onchange="myFunction()">
+                            <select id="year" class="year" name="year_name" onchange="myFunction()">
                                 <option value="" disabled selected hidden>Year</option>
                                 <option value="2014">2014</option>
                                 <option value="2015">2015</option>
@@ -52,13 +52,43 @@
                             <input type="text" class="input-loan" name="type_loan" id="loan_text" placeholder="" value="">
 
                         <div style="text-align: center; margin-top: 10px;">
-                            <input type="submit"  data-uk-modal="{target:'#my-id'}"  class="uk-button uk-button-primary uk-width-2-10  extract-button" value="Extract CSV" form="tbl_form" id="test1"/>
+                            <input type="submit" class="uk-button uk-button-primary uk-width-2-10  extract-button" value="Extract CSV" form="tbl_form" id="test1"/>
+<!--                            <button type="submit" class="uk-button uk-button-primary uk-width-2-10  extract-button" form="tbl_form" id="test1">Extract CSV</button>-->
                         </div>
                     </div>
                     <hr class='uk-article-divider' style="margin-top: 15px; margin-bottom: 15px;">
                 </form>
+
+                <div class="preload">
+                    <img src="http://localhost/onepuhunan_practice/img/loader.gif" class="sixe"/>
+                </div>
+
+
             </div>
         </div>
+
+        <style>.preload{display: none;} .sixe{    width: 20%;
+                                           position: fixed;
+                                           top: 31%;
+                                           left: 40%;}</style>
+
+        <script>
+
+
+
+            $(document).ready(function() {
+                $(".preload").hide();
+
+                $("#test1").click(function() {
+                    $(".preload").show();
+                    $("#test1").hide();
+
+                    setTimeout(function() {
+                        $(".preload").hide();
+                    }, 8000);
+                });
+            });
+        </script>
         <?php $this->load->view("templates/footer"); ?>
 
 

@@ -28,6 +28,7 @@ class HR extends CI_Controller
     public function import()
     {
         $this->load->model('HR_model');
+        $count = 0;
 
         if(isset($_POST["import"]))
         {
@@ -51,12 +52,63 @@ class HR extends CI_Controller
 
                     //$insert = $this->welcome->insertCSV($data);
                     $this->HR_model->insertCSV($data);
+                    $count++;
                 }
                 fclose($file);
-                $this->session->set_flashdata('message', 'Data are imported successfully..');
+                $this->session->set_flashdata('message',
+                    '
+                <link rel="stylesheet" href="http://localhost/onepuhunan_practice/css/uikit.css">
+                <link rel="stylesheet" href="http://localhost/onepuhunan_practice/css/custom.css">
+                           
+                <div class="overlay">
+                    <div class="modelBox">
+                            <div class="modal-header">
+                                <h2 class="header">SUCCESS!</h2>
+                            </div>
+                            <div class="modal-body">
+                                <span class ="modal-body-text">
+                                      <picture class="uk-icon-check icon"></picture>
+                                    <p>
+                                        <b class="count">'.$count.'</b>               
+                                        Records are Successfully uploaded.
+                                    </p>
+                                </span>
+                            </div>
+                        <div class="modal-footer">
+                            <button class="uk-button uk-button-success footer close">OK</button>
+                        </div>
+                        </div>
+                </div>
+                      <script src="http://localhost/onepuhunan_practice/js/custom.js"></script>                   
+                ');
                 redirect('hr/import_employee');
             }else{
-                $this->session->set_flashdata('message', 'Something went wrong..');
+                $this->session->set_flashdata('message',
+                    '
+                    
+                           <link rel="stylesheet" href="http://localhost/onepuhunan_practice/css/uikit.css">
+                           <link rel="stylesheet" href="http://localhost/onepuhunan_practice/css/custom.css">
+                           
+                <div class="overlay">
+                    <div class="modelBox">
+                            <div class="modal-header">
+                                <h2 class="header">ERROR!</h2>
+                            </div>
+                            <div class="modal-body">
+                                <span class ="modal-body-text">
+                                      <picture class="uk-icon-exclamation-triangle icon-error"></picture>
+                                    <p>
+                                        No Records Uploaded.
+                                    </p>
+                                </span>
+                            </div>
+                        <div class="modal-footer">
+                            <button class="uk-button uk-button-danger footer close">OK</button>
+                        </div>
+                        </div>
+                </div>
+                      <script src="http://localhost/onepuhunan_practice/js/custom.js"></script>   
+                    ');
                 redirect('hr/import_employee');
             }
         }

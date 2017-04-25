@@ -115,7 +115,7 @@ header("Cache-Control: max-age=0, must-revalidate");
                 <th>Date of Resign</th>
             </tr>
         </table>
-        <table style="text-align: right!important;" id="t01" class="uk-table uk-table-hover uk-table-striped uk-table-condensed">
+        <table style="text-align: right!important;client" id="t01" class="uk-table uk-table-hover uk-table-striped uk-table-condensed">
             <?php
             if(isset($view_data) && is_array($view_data) && count($view_data)): $i=1;
                 foreach ($view_data as $key => $data) {
