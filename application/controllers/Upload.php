@@ -18,14 +18,14 @@ class Upload extends CI_Controller {
     }
 
     public function do_upload() {
-        $config['upload_path'] = 'Z:/HR';
+        $config['upload_path'] ='Z:\HR';
         $data['error'] = '';    //initialize image upload error array to empty
         $config['allowed_types'] = 'csv';
         $config['max_size'] = '1000';
 
         $this->load->library('upload', $config);
 
-        if ( ! $this->upload->do_upload('file')) {rou
+        if ( ! $this->upload->do_upload('file')) {
             $error = array('error' => $this->upload->display_errors());
             $this->load->view('hr/upload_form', $error);
         }
