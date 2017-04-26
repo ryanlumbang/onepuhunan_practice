@@ -435,7 +435,7 @@ class Audit extends CI_Controller {
                         </div>
                         </div>
                 </div>
-                      <script src="http://localhost/onepuhunan_practice/js/custom.js"></script>
+                      <script src="http://localhost/onepuhunan_practice/js/audit.js"></script>
 
                         ');
                 redirect('audit/audit_import');
@@ -463,7 +463,7 @@ class Audit extends CI_Controller {
                         </div>
                         </div>
                 </div>
-                      <script src="http://localhost/onepuhunan_practice/js/custom.js"></script>             
+                      <script src="http://localhost/onepuhunan_practice/js/audit.js"></script>             
                 ');
                 redirect('audit/audit_import');
             }
